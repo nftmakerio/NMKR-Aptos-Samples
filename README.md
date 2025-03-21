@@ -14,23 +14,21 @@ The API Addresses for NMKR Studio are:
   
 Upload a Collection Image to IPFS or any other Decentral Filesystem
 
-Create the Project:
+Create an Aptos only Project:
 ```
 curl --request POST \
-  --url https://studio-api.preprod.nmkr.io/v2/CreateProject \
+  --url https://localhost:44358/v2/CreateProject \
   --header 'Content-Type: application/json' \
   --header 'authorization: <apikey>' \
   --data '{
-   "projectname":"TestProjectAptos",
-   "description":"This is the description of the Aptos Project",
-   "payoutwalletaddressaptos":"0x76b98eb82b78134fb039dc22bde0f189c9e77ca4d6175f14627f0ae5163db49e",
-   "maxNftSupply":1,
-   "addressExpiretime":60,
-   "enableaptos":"true",
-   "enablecardano":"false",
-   "enablesolana":"false",
-   "aptoscollectionimageurl":"",
-   "aptoscollectionimagemimetype":"",
+      "projectname":"TestProjectAptos",
+      "description":"This is the description of the Aptos Project",
+      "payoutwalletaddressaptos":"0x76b98eb82b78134fb039dc22bde0f189c9e77ca4d6175f14627f0ae5163db49e",
+      "maxNftSupply":1,
+      "addressExpiretime":60,
+    	"enableaptos":true,
+    	"enablecardano":false,
+    	"enablesolana":false
 }
 '
 ```
