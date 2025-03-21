@@ -32,3 +32,20 @@ curl --request POST \
 }
 '
 ```
+You will receive an JSON Result (or an errormessage) with some informations:
+
+```
+{
+	"projectId": 0,
+	"metadata": null,
+	"policyId": null,
+	"policyScript": null,
+	"policyExpiration": null,
+	"uid": "89b066c3-67ae-40b2-acc9-93cfb8fc8689",
+	"metadataTemplateAptos": null,
+	"metadataTemplateSolana": "{\r\n  \"name\": \"<asset_name>\",\r\n  \"image\": \"https://c-ipfs-gw.nmkr.io/ipfs/<ipfs_link>\",\r\n  \"properties\": {\r\n    \"files\": [\r\n      {\r\n        \"type\": \"<mime_type>\",\r\n        \"uri\": \"https://c-ipfs-gw.nmkr.io/ipfs/<ipfs_link>\"\r\n      }\r\n    ]\r\n  },\r\n  \"description\": \"<project_description>\",\r\n  \"attributes\": [\r\n    {\r\n      \"trait_type\": \"description\",\r\n      \"value\": \"<project_description>\"\r\n    }\r\n  ]\r\n}"
+}
+```
+
+Notice the UID, because this is neccessary to upload the NFT into the project. If you want to have different metadata, you can have a look into the samples for traits and fixed fields in the metadata.
+
