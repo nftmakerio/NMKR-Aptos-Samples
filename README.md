@@ -15,9 +15,9 @@ The API Addresses for NMKR Studio are:
 Upload a Collection Image to IPFS or any other Decentral Filesystem
 
 Create an Aptos only Project:
-```
+```shell
 curl --request POST \
-  --url https://localhost:44358/v2/CreateProject \
+  --url https://<apiaddress>/v2/CreateProject \
   --header 'Content-Type: application/json' \
   --header 'authorization: <apikey>' \
   --data '{
@@ -49,3 +49,21 @@ You will receive an JSON Result (or an errormessage) with some informations:
 
 Notice the UID, because this is neccessary to upload the NFT into the project. If you want to have different metadata, you can have a look into the samples for traits and fixed fields in the metadata.
 
+Now you can add some NFTs to your project with the following call:
+
+```shell
+curl --request POST \
+  --url https://<apiaddress>/v2/UploadNft/<projectuid> \
+  --header 'Content-Type: application/json' \
+  --header 'authorization: <apikey>' \
+  --data '{
+   "tokenname": "Nft1",
+   "displayname": "Nft #1",
+   "description": "This is the first NFT in the new collection",
+   "previewImageNft": {
+     "mimetype": "image/jpeg",
+     "fileFromsUrl": "https://picsum.photos/640/480"
+  }
+
+}'
+```
