@@ -1,17 +1,20 @@
 # Mint Aptos NFT With NMKR Studio
+### This is a very simple example how to mint an NFT with NMKR Studio on the Aptos blockchain. You can find other samples in the corresponding folders.
 
+## Prerequisites
 First create an Account with NMKR Studio and create an API Key.
 
 Second, Login and buy some Mint Coupons. Since your Aptos NFT needs a collection, you have to fill up your account with at least one mint coupon.
 
 
-
+## URLs for the API
 The API Addresses for NMKR Studio are:
 
 - Testnet: https://studio-api.preprod.nmkr.io
 - Mainnet: https://studio-api.nmkr.io
 
   
+## Step 1: Create a Project
 Upload a Collection Image to IPFS or any other Decentral Filesystem
 
 Create an Aptos only Project:
@@ -47,13 +50,14 @@ You will receive an JSON Result (or an errormessage) with some informations:
 }
 ```
 
+## Step 2: Upload an NFT
 Notice the UID, because this is neccessary to upload the NFT into the project. If you want to have different metadata, you can have a look into the samples for traits and fixed fields in the metadata.
 
 Now you can add some NFTs to your project with the following call:
 
 ```shell
 curl --request POST \
-  --url https://<apiaddress>/v2/UploadNft/<projectuid> \
+  --url https://<apiaddress>/v2/UploadNft/apiaddress> \
   --header 'Content-Type: application/json' \
   --header 'authorization: <apikey>' \
   --data '{
@@ -81,4 +85,41 @@ After that, you receive an JSON Result (or an error)
 	"metadataSolana": null
 }
 ```
+
+## Step 3: Catch a payment address for an random NFT
+```shell
+ curl --request GET \
+  --url 'https://apiaddress>/v2/GetPaymentAddressForRandomNftSale/apiaddress>/<countnft>/<priceinoctas>?blockchain=Aptos' \
+  --header 'authorization: <apikey>'
+  
+```
+
+If no error occurs, you will receive an JSON like this:
+
+```json
+{
+	"paymentAddress": "0xb6aa8844961de0e7416008288eb9ac4bea207d99f54a048d3ecf5ee526e0f13c",
+	"paymentAddressId": 87769,
+	"expires": "2025-03-21T14:33:18.9652512+00:00",
+	"adaToSend": null,
+	"solToSend": null,
+	"aptToSend": "1",
+	"debug": "",
+	"priceInEur": 5.06,
+	"priceInUsd": 5.47,
+	"priceInJpy": 816.5,
+	"priceInBtc": 0,
+	"effectivedate": "2025-03-21T13:33:19.2424227+00:00",
+	"priceInLovelace": 0,
+	"additionalPriceInTokens": null,
+	"sendbackToUser": 0,
+	"revervationtype": "random",
+	"currency": "APT",
+	"priceInLamport": 0,
+	"priceInOcta": 100000000
+}
+```
+Here you find an aptos payment address (paymentAddress) where the buyer has to send 1 APT. The payment address is valid until the date in expires. The price is also shown in EUR, USD, JPY and BTC.
+After the buyer has made the payment, the NFT will be minted and transfered to the buyer.
+
 
