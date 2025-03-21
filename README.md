@@ -67,3 +67,18 @@ curl --request POST \
 
 }'
 ```
+After that, you receive an JSON Result (or an error)
+
+```json
+{
+	"nftId": 2511295,
+	"nftUid": "9ee88c31-1ae2-41e1-99b3-4fc19f83c8d8",
+	"ipfsHashMainnft": "QmVuXZVkpKsH9oQrdEQ4wzCzHq5hJMEdDskxYAaiuAe6FB",
+	"ipfsHashSubfiles": [],
+	"metadata": null,
+	"assetId": "565f3a76a2bffab0dcb5745e4a8409275dd9203c2e68bf0b6e72fdf44e667434",
+	"metadataAptos": "{\r\n  \"name\": \"Nft4\",\r\n  \"image\": \"https://c-ipfs-gw.nmkr.io/ipfs/QmVuXZVkpKsH9oQrdEQ4wzCzHq5hJMEdDskxYAaiuAe6FB\",\r\n  \"properties\": {\r\n    \"files\": [\r\n      {\r\n        \"type\": \"image/jpeg\",\r\n        \"uri\": \"https://c-ipfs-gw.nmkr.io/ipfs/QmVuXZVkpKsH9oQrdEQ4wzCzHq5hJMEdDskxYAaiuAe6FB\"\r\n      }\r\n    ]\r\n  },\r\n  \"description\": \"This is the description of the Aptos Project\",\r\n  \"attributes\": [\r\n    {\r\n      \"trait_type\": \"description\",\r\n      \"value\": \"This is the description of the Aptos Project\"\r\n    }\r\n  ]\r\n}",
+	"metadataSolana": null
+}
+```
+
