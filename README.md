@@ -11,7 +11,7 @@ The API Addresses for NMKR Studio are:
 Upload a Collection Image to IPFS or any other Decentral Filesystem
 
 Create the Project:
-
+```
 curl --request POST \
   --url https://studio-api.preprod.nmkr.io/v2/CreateProject \
   --header 'Content-Type: application/json' \
@@ -29,3 +29,4 @@ curl --request POST \
    "aptoscollectionimagemimetype":"",
 }
 '
+```
