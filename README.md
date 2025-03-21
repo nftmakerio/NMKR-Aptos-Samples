@@ -1,5 +1,5 @@
-# Mint Aptos NFT With NMKR Studio
-### This is a very simple example how to mint an NFT with NMKR Studio on the Aptos blockchain. You can find other samples in the corresponding folders.
+# Mint Aptos NFT with NMKR Studio
+### This is a very simple example how to mint an NFT with NMKR Studio on the Aptos blockchain. You can find more samples in the corresponding folders.
 
 ## Prerequisites
 First create an Account with NMKR Studio and create an API Key.
@@ -50,7 +50,7 @@ You will receive an JSON Result (or an errormessage) with some informations:
 }
 ```
 
-## Step 2: Upload an NFT
+## Step 2: Upload one (or more) NFTs to the Project
 Notice the UID, because this is neccessary to upload the NFT into the project. If you want to have different metadata, you can have a look into the samples for traits and fixed fields in the metadata.
 
 Now you can add some NFTs to your project with the following call:
@@ -86,7 +86,7 @@ After that, you receive an JSON Result (or an error)
 }
 ```
 
-## Step 3: Catch a payment address for one or more random NFT
+## Step 3: Catch a payment address for one (or more) random NFT
 ```shell
  curl --request GET \
   --url 'https://<apiaddress>/v2/GetPaymentAddressForRandomNftSale/<projectuid>/<countnft>/<priceinoctas>?blockchain=Aptos' \
