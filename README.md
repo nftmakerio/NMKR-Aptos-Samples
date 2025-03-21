@@ -57,7 +57,7 @@ Now you can add some NFTs to your project with the following call:
 
 ```shell
 curl --request POST \
-  --url https://<apiaddress>/v2/UploadNft/apiaddress> \
+  --url https://<apiaddress>/v2/UploadNft/<projectuid> \
   --header 'Content-Type: application/json' \
   --header 'authorization: <apikey>' \
   --data '{
@@ -86,10 +86,10 @@ After that, you receive an JSON Result (or an error)
 }
 ```
 
-## Step 3: Catch a payment address for an random NFT
+## Step 3: Catch a payment address for one or more random NFT
 ```shell
  curl --request GET \
-  --url 'https://apiaddress>/v2/GetPaymentAddressForRandomNftSale/apiaddress>/<countnft>/<priceinoctas>?blockchain=Aptos' \
+  --url 'https://<apiaddress>/v2/GetPaymentAddressForRandomNftSale/<projectuid>/<countnft>/<priceinoctas>?blockchain=Aptos' \
   --header 'authorization: <apikey>'
   
 ```
@@ -119,7 +119,73 @@ If no error occurs, you will receive an JSON like this:
 	"priceInOcta": 100000000
 }
 ```
-Here you find an aptos payment address (paymentAddress) where the buyer has to send 1 APT. The payment address is valid until the date in expires. The price is also shown in EUR, USD, JPY and BTC.
-After the buyer has made the payment, the NFT will be minted and transfered to the buyer.
+Here you find an aptos payment address (paymentAddress) where the buyer has to send 1 APT. The payment address is valid until the date in expires. The price is also shown in EUR, USD, JPY and BTC.\
+After the buyer has made the payment, the NFT will be minted and transfered to the buyer.\
+When the buyer sends a wrong amount, the Amount will be transfered back to the buyer.\
+If the address is expired, the buyer has to request a new address. If he made a payment to an expired address, the amount will be transfered back to the buyer.\
 
 
+
+
+## Step4: Check the state of the Address
+You can check the state of the address with the following call:
+
+```shell
+  curl --request GET \
+  --url https://<apiaddress>/v2/CheckAddress/<projectuid>/<addresstocheck> \
+  --header 'authorization: <apikey>'
+```
+
+You will receive an JSON like this:
+
+```json
+{
+  "state": "active",
+  "lovelace": 0,
+  "receivedAptosOctas": 0,
+  "receivedSolanaLamports": 0,
+  "receivedCardanoLovelace": 0,
+  "coin": "APT",
+  "hasToPay": 100000000,
+  "additionalPriceInTokens": [],
+  "payDateTime": null,
+  "expiresDateTime": "2025-03-21T14:33:19",
+  "transaction": null,
+  "senderAddress": null,
+  "reservedNft": [
+    {
+      "id": 136851,
+      "uid": "23713f14-590c-4fdf-a509-bc97302a524e",
+      "name": null,
+      "displayname": null,
+      "detaildata": null,
+      "ipfsLink": null,
+      "gatewayLink": null,
+      "state": null,
+      "minted": false,
+      "policyId": null,
+      "assetId": null,
+      "assetname": null,
+      "fingerprint": null,
+      "initialMintTxHash": null,
+      "series": null,
+      "tokenamount": 1,
+      "price": null,
+      "selldate": null,
+      "paymentGatewayLinkForSpecificSale": null,
+      "priceSolana": null,
+      "priceAptos": null
+    }
+  ],
+  "rejectReason": null,
+  "rejectParameter": null,
+  "stakeReward": null,
+  "discount": null,
+  "customProperty": null,
+  "tokenReward": null,
+  "countNftsOrTokens": 1,
+  "reservationType": "random"
+}
+```
+
+The most important information is the state. If the state is "active", the buyer has to send the amount of APT to the address. If the state is "paid", the NFT is minted and transfered to the buyer. If the state is "expired", the buyer has to request a new address. If the state is "rejected", the buyer had send a wrong amount or the salecondtions are not met. In this case, the amount will be transfered back to the buyer.
