@@ -120,14 +120,14 @@ If no error occurs, you will receive an JSON like this:
 }
 ```
 Here you find an aptos payment address (paymentAddress) where the buyer has to send 1 APT. The payment address is valid until the date in expires. The price is also shown in EUR, USD, JPY and BTC.\
-After the buyer has made the payment, the NFT will be minted and transfered to the buyer.\
-When the buyer sends a wrong amount, the Amount will be transfered back to the buyer.\
-If the address is expired, the buyer has to request a new address. If he made a payment to an expired address, the amount will be transfered back to the buyer.\
+After the buyer has made the payment, the NFT will be minted and transferred to the buyer.\
+When the buyer sends a wrong amount, the Amount will be transferred back to the buyer.\
+If the address is expired, the buyer has to request a new address. If he made a payment to an expired address, the amount will be transferred back to the buyer.\
 
 
 
 
-## Step4: Check the state of the Address
+## Step 4: Check the state of the Address
 You can check the state of the address with the following call:
 
 ```shell
@@ -188,4 +188,4 @@ You will receive an JSON like this:
 }
 ```
 
-The most important information is the state. If the state is "active", the buyer has to send the amount of APT to the address. If the state is "paid", the NFT is minted and transfered to the buyer. If the state is "expired", the buyer has to request a new address. If the state is "rejected", the buyer had send a wrong amount or the salecondtions are not met. In this case, the amount will be transfered back to the buyer.
+The most important information is the state. If the state is "active", the buyer has to send the amount of APT to the address. If the state is "paid", the NFT is minted and transferred to the buyer. If the state is "expired", the buyer has to request a new address. If the state is "rejected", the buyer had send a wrong amount or the saleconditions are not met. In this case, the amount will be transferred back to the buyer.
