@@ -15,7 +15,7 @@ Create the Project:
 curl --request POST \
   --url https://studio-api.preprod.nmkr.io/v2/CreateProject \
   --header 'Content-Type: application/json' \
-  --header 'authorization: 5f3ff8e2331b4bc3a548f20388327615' \
+  --header 'authorization: <apikey>' \
   --data '{
    "projectname":"TestProjectAptos",
    "description":"This is the description of the Aptos Project",
