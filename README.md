@@ -93,6 +93,7 @@ After that, you receive an JSON Result (or an error)
   --header 'authorization: <apikey>'
   
 ```
+As we have not stored a price list, we have to enter the number of NFTs and the price manually when calling the function. If a price list is stored in the project, these parameters are not required.
 
 If no error occurs, you will receive an JSON like this:
 
