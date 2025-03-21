@@ -26,6 +26,9 @@ curl --request POST \
   --data '{
       "projectname":"TestProjectAptos",
       "description":"This is the description of the Aptos Project",
+      "aptoscollectionname":"TestCollectionAptos",
+      "aptoscollectionimageurl":"https://c-ipfs-gw.nmkr.io/ipfs/QmXHBX67PrmXabzJ66VxLQKt25kaeeoJBdC3ytbSaTPFuQ",
+      "aptoscollectionimagemimetype":"image/jpeg",
       "payoutwalletaddressaptos":"0x76b98eb82b78134fb039dc22bde0f189c9e77ca4d6175f14627f0ae5163db49e",
       "maxNftSupply":1,
       "addressExpiretime":60,
@@ -35,7 +38,16 @@ curl --request POST \
 }
 '
 ```
-You will receive an JSON Result (or an errormessage) with some informations:
+The AptosCollectionName is required, because the collection is the main object for the NFTs. The AptosCollectionImage is the image of the collection. The PayoutWalletAddressAptos is the address where the payments for the NFTs will be sent (the sellers wallet).\
+The MaxNftSupply must be 1, otherwise the Project is no NFT, but a Fungible Token project. At the moment we do not support FT Projects in the Aptos Blockchain.\
+The AddressExpireTime is the time in minutes, how long the payment address is valid.
+
+
+If you want to enable the Aptos Blockchain, set the EnableAptos to true. If you want to enable the Cardano Blockchain, set the EnableCardano to true. If you want to enable the Solana Blockchain, set the EnableSolana to true.
+
+
+
+You will receive an JSON Result (or an errormessage) with some information:
 
 ```json
 {
@@ -51,7 +63,7 @@ You will receive an JSON Result (or an errormessage) with some informations:
 ```
 
 ## Step 2: Upload one (or more) NFTs to the Project
-Notice the UID, because this is neccessary to upload the NFT into the project. If you want to have different metadata, you can have a look into the samples for traits and fixed fields in the metadata.
+Notice the UID, because this is necessary to upload the NFT into the project. If you want to have different metadata, you can have a look into the samples for traits and fixed fields in the metadata.
 
 Now you can add some NFTs to your project with the following call:
 
