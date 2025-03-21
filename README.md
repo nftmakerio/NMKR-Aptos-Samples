@@ -34,7 +34,7 @@ curl --request POST \
 ```
 You will receive an JSON Result (or an errormessage) with some informations:
 
-```
+```json
 {
 	"projectId": 0,
 	"metadata": null,
