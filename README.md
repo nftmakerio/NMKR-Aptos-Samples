@@ -4,7 +4,7 @@ First create an Account with NMKR Studio and create an API Key
 
 The API Addresses for NMKR Studio are:
 
-- Testnet: studio-api.preprod.nmkr.io
-- Mainnet: studio-api.nmkr.io
+- Testnet: https://studio-api.preprod.nmkr.io
+- Mainnet: https://studio-api.nmkr.io
 
   
