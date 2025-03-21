@@ -1,6 +1,10 @@
 # Mint Aptos NFT With NMKR Studio
 
-First create an Account with NMKR Studio and create an API Key
+First create an Account with NMKR Studio and create an API Key.
+
+Second, Login and buy some Mint Coupons. Since your Aptos NFT needs a collection, you have to fill up your account with at least one mint coupon.
+
+
 
 The API Addresses for NMKR Studio are:
 
